@@ -5,7 +5,7 @@ import Post from './Post'
 // import Post from './Post'
 ReactDOM.render(
   <div>
-  <Get />,
+  <Get />
   <Post />
   </div>,
   document.getElementById('root')
