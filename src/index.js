@@ -1,11 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Get from './Get'
-import Post from './Post'
+import React from "react";
+import ReactDOM from "react-dom";
+import Task2 from "./Task_2/Task2";
+import { createStore } from "redux";
+import Reducers from "./Task_2/reducers/combine";
+import { Provider } from "react-redux";
+
+const MyStore = createStore(
+  Reducers,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
 ReactDOM.render(
-  <div>
-  <Get />
-  <Post />
-  </div>,
-  document.getElementById('root')
+  <Provider store={MyStore}>
+    <div>
+      <Task2 />
+    </div>
+  </Provider>,
+  document.getElementById("root")
 );
