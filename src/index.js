@@ -1,19 +1,25 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Task2 from "./Task_2/Task2";
-import { createStore } from "redux";
-import Reducers from "./Task_2/reducers/combine";
+import FunctionComponent from "./functionView";
+import ClassComponent from "./classView";
 import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
 
-const MyStore = createStore(
-  Reducers,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = configureStore();
 
 ReactDOM.render(
-  <Provider store={MyStore}>
-    <div>
-      <Task2 />
+  <Provider store={store}>
+    <div
+      style={{
+        position: "absolute",
+        top: "30vh",
+        left: "30vw",
+      }}
+    >
+      <h3>Function Component</h3>
+      <FunctionComponent />
+      <h3>Class Component</h3>
+      <ClassComponent />
     </div>
   </Provider>,
   document.getElementById("root")
